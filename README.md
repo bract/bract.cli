@@ -5,7 +5,7 @@ A [Bract](https://github.com/bract) module for Command-line Interface (CLI) supp
 
 ## Usage
 
-Leiningen coordinates: `[bract/bract.ring "0.2.0-SNAPSHOT"]`
+Leiningen coordinates: `[bract/bract.cli "0.2.0-SNAPSHOT"]`
 
 For documentation refer demo applications.
 
