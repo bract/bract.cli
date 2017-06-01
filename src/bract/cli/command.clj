@@ -9,13 +9,7 @@
 
 (ns bract.cli.command
   (:require
-    [clojure.string    :as string]
-    [keypin.core       :as keypin]
-    [bract.core.config :as core-config])
-  (:import
-    [java.io Writer]
-    [java.util Map]
-    [keypin ConfigIO PropertyConfigIO]))
+    [bract.core.config :as core-config]))
 
 
 (defn command-run
@@ -36,14 +30,8 @@
   by returning reduced context"
   [context]
   (let [config (core-config/ctx-config context)
-        config-filenames (core-config/ctx-config-files context)
-        ^ConfigIO configIO (if (some (comp #(.endsWith ^String % ".edn")
-                                       string/trim
-                                       string/lower-case)
-                                 config-filenames)
-                             keypin/edn-file-io
-                             PropertyConfigIO/INSTANCE)]
-    (.writeConfig configIO *out* ^Map config true))
+        config-filenames (core-config/ctx-config-files context)]
+    (core-config/print-config config config-filenames))
   (reduced context))
 
 
