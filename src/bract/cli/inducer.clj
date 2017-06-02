@@ -33,7 +33,7 @@
     (cond
       (:help options) (do
                         (core-util/err-println summary)
-                        (core-util/err-println (str "Commands:\n"
+                        (core-util/err-println (str "\nCommands:\n"
                                                  (->> (clim-config/ctx-app-commands context)
                                                    (reduce-kv (fn [a command {doc :doc}]
                                                                 (conj a {"Command" command "Description" doc}))

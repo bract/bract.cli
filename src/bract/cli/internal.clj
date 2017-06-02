@@ -16,7 +16,7 @@
 
 
 (def cli-options
-  [["-c" "--command COMMAND"         "Command to run: run, printcfg, repl" :default "run"]
+  [["-c" "--command COMMAND"         "Command to run" :default "run"]
    ["-f" "--config-file CONFIG-FILE" "Config file names (comma-separated)"]
    ["-h" "--help"        "Show usage"         :default false]
    ["-v" "--verbose"     "Verbose execution"  :default nil]])
