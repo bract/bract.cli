@@ -15,7 +15,8 @@
 (defn command-run
   "Run all steps."
   [context]
-  context)
+  (assoc context
+    (key core-config/ctx-launch?) true))
 
 
 (defn command-dryrun
