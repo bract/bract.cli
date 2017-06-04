@@ -2,10 +2,12 @@
 
 A [Bract](https://github.com/bract) module for Command-line Interface (CLI) support.
 
+Depends on [clojure/tools.cli](https://github.com/clojure/tools.cli).
+
 
 ## Usage
 
-Leiningen coordinates: `[bract/bract.cli "0.2.0-SNAPSHOT"]`
+Leiningen coordinates: `[bract/bract.cli "0.2.0"]`
 
 For documentation refer demo applications.
 
