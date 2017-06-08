@@ -60,7 +60,8 @@
       (let [{:keys [doc handler]} (get app-commands command)]
         (core-util/expected (some-fn ifn? kputil/fqvn?)
           "CLI-command handler function or fully qualified fn name" handler)
-        (core-config/apply-inducer context "CLI command-handler" handler))
+        (core-config/apply-inducer-by-key
+          (key clim-config/ctx-app-commands) context handler {:inducer-type "CLI command-handler"}))
       (core-util/expected (format "a valid command %s" (->> (keys app-commands)
                                                          (concat (keys app-commands))
                                                          vec

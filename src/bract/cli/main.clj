@@ -25,7 +25,7 @@
      core-inducer/set-verbosity   ; set user-preferred verbosity
      core-inducer/read-config     ; read config file(s) and populate context
      clim-inducer/execute-command ; execute the resolved command
-     core-inducer/run-inducers    ; finally run the configured inducers
+     core-inducer/run-config-inducers ; finally run the configured inducers
      ]))
 
 
