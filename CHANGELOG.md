@@ -1,5 +1,11 @@
 # Change Log
 
+
+## [WIP] 0.3.0 / 2017-June-??
+- Use `[bract/bract.core "0.3.0"]`
+  - [TODO] Remove this when using final GA version
+
+
 ## 0.2.0 / 2017-June-04
 - Extract codebase into `bract.cli` namespace
 - Drop `--launch` CLI flag in favour of `dryrun` command
