@@ -12,14 +12,13 @@
   (:require
     [bract.cli.inducer  :as clim-inducer]
     [bract.core.config  :as core-config]
-    [bract.core.inducer :as core-inducer]
-    [bract.core.util    :as core-util])
+    [bract.core.inducer :as core-inducer])
   (:gen-class))
 
 
 (defn trigger
   [context]
-  (core-util/induce context
+  (core-inducer/induce context
     [core-inducer/set-verbosity   ; set default verbosity
      clim-inducer/parse-args      ; parse CLI arguments and populate context
      core-inducer/set-verbosity   ; set user-preferred verbosity
