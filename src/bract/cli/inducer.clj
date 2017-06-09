@@ -14,6 +14,7 @@
     [clojure.tools.cli  :as cli]
     [keypin.util        :as kputil]
     [bract.core.config  :as core-config]
+    [bract.core.inducer :as core-inducer]
     [bract.core.util    :as core-util]
     [bract.cli.config   :as clim-config]
     [bract.cli.internal :as internal]))
@@ -60,8 +61,8 @@
       (let [{:keys [doc handler]} (get app-commands command)]
         (core-util/expected (some-fn ifn? kputil/fqvn?)
           "CLI-command handler function or fully qualified fn name" handler)
-        (core-config/apply-inducer-by-key
-          (key clim-config/ctx-app-commands) context handler {:inducer-type "CLI command-handler"}))
+        (core-inducer/apply-inducer-by-key
+          "CLI command-handler" (key clim-config/ctx-app-commands) context handler))
       (core-util/expected (format "a valid command %s" (->> (keys app-commands)
                                                          (concat (keys app-commands))
                                                          vec
