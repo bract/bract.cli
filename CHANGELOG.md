@@ -3,7 +3,6 @@
 
 ## [WIP] 0.3.0 / 2017-June-??
 - Use bract.core 0.3
-  - [TODO] Remove this when using final GA version
 
 
 ## 0.2.0 / 2017-June-04
