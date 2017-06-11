@@ -1,4 +1,9 @@
-# Change Log
+# bract.cli TODO and Change Log
+
+
+## [WIP] 0.3.0 / 2017-June-??
+- Use bract.core 0.3
+
 
 ## 0.2.0 / 2017-June-04
 - Extract codebase into `bract.cli` namespace
