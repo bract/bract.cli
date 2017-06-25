@@ -1,4 +1,4 @@
-(defproject bract/bract.cli "0.3.0"
+(defproject bract/bract.cli "0.3.1-SNAPSHOT"
   :description "CLI module for Bract"
   :url "https://github.com/bract/bract.cli"
   :license {:name "Eclipse Public License"
