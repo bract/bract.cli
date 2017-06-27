@@ -1,4 +1,4 @@
-# bract.cli documentation
+# bract.cli
 
 This documentation is for the _bract.cli_ module. Refer [Bract documentation](https://bract.github.io/about.html)
 for overall Bract documentation.
@@ -12,7 +12,7 @@ Leiningen coordinates: `[bract/bract.cli "0.3.1"]`
 |-------------------------------|---------------|-------------|
 | `:bract.cli/config-required?` | Boolean       | Is config file required to be specified? |
 | `:bract.cli/command`          | String        | CLI command to execute |
-| `:bract.cli/cmd-args`         | String vector | CLI command arguments
+| `:bract.cli/cmd-args`         | String vector | CLI command arguments  |
 | `:bract.cli/app-commands`     | Command map   | Commands, e.g. `{"run" {:doc "Run app" :handler myapp.core/run}}` |
 
 
