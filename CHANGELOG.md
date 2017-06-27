@@ -4,7 +4,7 @@
 ## [WIP] 0.3.1 / 2017-June-??
 
 - [TODO] Use bract.core 0.3.1
-- [TODO] Extract default command map as a separate config var (so that extensions can use it)
+- Extract default command map as `bract.cli.config/default-commands` for extensibility
 - [TODO] Add documentation for Github pages
 
 
