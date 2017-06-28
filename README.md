@@ -5,9 +5,9 @@ A [Bract](https://github.com/bract) module for Command-line Interface (CLI) supp
 Depends on [clojure/tools.cli](https://github.com/clojure/tools.cli).
 
 
-## Usage
+## Clojars coordinates
 
-Leiningen coordinates: `[bract/bract.cli "0.3.1-SNAPSHOT"]`
+`[bract/bract.cli "0.3.1-SNAPSHOT"]`
 
 
 ## Documentation
