@@ -7,9 +7,16 @@ Depends on [clojure/tools.cli](https://github.com/clojure/tools.cli).
 
 ## Usage
 
-Leiningen coordinates: `[bract/bract.cli "0.3.0"]`
+Leiningen coordinates: `[bract/bract.cli "0.3.1-SNAPSHOT"]`
 
-For documentation refer demo applications.
+
+## Documentation
+
+Bract documentation: https://bract.github.io/
+
+Module documentation: https://bract.github.io/module/cli.html
+
+Demo applications: https://bract.github.io/documentation.html#demo-applications
 
 
 ## License
