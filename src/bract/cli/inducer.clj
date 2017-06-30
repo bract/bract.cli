@@ -21,7 +21,7 @@
 
 
 (defn parse-args
-  "Given context with key :bract.cli/cli-arguments, parse CLI args and return (potentially reduced) the context updated
+  "Given context with key :bract.cli/cli-args, parse CLI args and return (potentially reduced) the context updated
   with config filename, CLI command and command-arguments."
   [context]
   (let [cli-args (core-config/ctx-cli-args context)

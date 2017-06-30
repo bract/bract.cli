@@ -1,15 +1,20 @@
 # bract.cli
 
-A [Bract](https://github.com/bract) module for Command-line Interface (CLI) support.
-
-Depends on [clojure/tools.cli](https://github.com/clojure/tools.cli).
+CLI support module for Bract.
 
 
-## Usage
+## Clojars coordinates
 
-Leiningen coordinates: `[bract/bract.cli "0.3.0"]`
+`[bract/bract.cli "0.3.1-SNAPSHOT"]`
 
-For documentation refer demo applications.
+
+## Documentation
+
+Bract documentation: https://bract.github.io/
+
+Module documentation: https://bract.github.io/module/cli.html
+
+Demo applications: https://bract.github.io/documentation.html#demo-applications
 
 
 ## License

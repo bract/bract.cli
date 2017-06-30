@@ -14,6 +14,12 @@
     [bract.cli.command :as command]))
 
 
+(def default-commands {"run"    {:doc "Run all steps"               :handler #'command/command-run}
+                       "dryrun" {:doc "Run all steps except launch" :handler #'command/command-dryrun}
+                       "config" {:doc "Print configuration"         :handler #'command/command-config}
+                       "repl"   {:doc "Start a REPL"                :handler #'command/command-repl}})
+
+
 (keypin/defkey
   ctx-config-required? [:bract.cli/config-required? kputil/bool? "Config file required?" {:default false}]
   ctx-command          [:bract.cli/command          string?      "The CLI command to execute"]
@@ -21,7 +27,4 @@
                                                       string?)   "Arguments for the CLI command"]
   ctx-app-commands     [:bract.cli/app-commands     (every-pred
                                                       map? seq)  "Commands (non-empty) to be handled by the app"
-                        {:default {"run"    {:doc "Run all steps"               :handler #'command/command-run}
-                                   "dryrun" {:doc "Run all steps except launch" :handler #'command/command-dryrun}
-                                   "config" {:doc "Print configuration"         :handler #'command/command-config}
-                                   "repl"   {:doc "Start a REPL"                :handler #'command/command-repl}}}])
+                        {:default default-commands}])

@@ -17,6 +17,14 @@
 
 
 (defn trigger
+  "Implementation detail for the CLI main entry point. Trigger execution of the following inducers in a sequence on the
+  given context:
+  bract.core.inducer/set-verbosity   ; set default verbosity
+  bract.cli.inducer/parse-args       ; parse CLI arguments and populate context
+  bract.core.inducer/set-verbosity   ; set user-preferred verbosity
+  bract.core.inducer/read-config     ; read config file(s) and populate context
+  bract.cli.inducer/execute-command  ; execute the resolved command
+  bract.core.inducer/run-config-inducers ; finally run the configured inducers"
   [context]
   (core-inducer/induce context
     [core-inducer/set-verbosity   ; set default verbosity
