@@ -1,7 +1,7 @@
 # bract.cli Change Log
 
 
-## [WIP] 0.3.1 / 2017-June-??
+## 0.3.1 / 2017-June-30
 
 - Use bract.core 0.3.1
 - Extract default command map as `bract.cli.config/default-commands` for extensibility
