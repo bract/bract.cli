@@ -10,7 +10,7 @@
 (ns bract.cli.internal
   (:require
     [clojure.string    :as string]
-    [bract.cli.config  :as clim-config]
+    [bract.cli.keydef  :as clim-kdef]
     [bract.core.keydef :as core-kdef]
     [bract.core.util   :as core-util]))
 
@@ -45,7 +45,7 @@
         (string/split <> #",")
         (mapv string/trim <>)
         (assoc context (key core-kdef/ctx-config-files) <>))
-      (if (clim-config/ctx-config-required? context)
+      (if (clim-kdef/ctx-config-required? context)
         (do
           (core-util/err-println "No config file specified as argument")
           (core-util/err-println (get-in parse-result [:summary]))
@@ -58,7 +58,7 @@
   (if (reduced? context)
     context
     (let [command (get-in parse-result [:options :command] "run")]
-      (assoc context (key clim-config/ctx-command) command))))
+      (assoc context (key clim-kdef/ctx-command) command))))
 
 
 (defn assoc-cmd-args
@@ -66,4 +66,4 @@
   (if (reduced? context)
     context
     (let [arguments (get-in parse-result [:arguments] [])]
-      (assoc context (key clim-config/ctx-cmd-args) arguments))))
+      (assoc context (key clim-kdef/ctx-cmd-args) arguments))))

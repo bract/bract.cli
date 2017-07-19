@@ -16,7 +16,7 @@
     [bract.core.keydef  :as core-kdef]
     [bract.core.inducer :as core-inducer]
     [bract.core.util    :as core-util]
-    [bract.cli.config   :as clim-config]
+    [bract.cli.keydef   :as clim-kdef]
     [bract.cli.internal :as internal]))
 
 
@@ -35,7 +35,7 @@
       (:help options) (do
                         (core-util/err-println summary)
                         (core-util/err-println (str "\nCommands:\n"
-                                                 (->> (clim-config/ctx-app-commands context)
+                                                 (->> (clim-kdef/ctx-app-commands context)
                                                    (reduce-kv (fn [a command {doc :doc}]
                                                                 (conj a {"Command" command "Description" doc}))
                                                      [])
@@ -54,9 +54,9 @@
 
 (defn execute-command
   [context]
-  (let [command   (clim-config/ctx-command context)
-        arguments (clim-config/ctx-cmd-args context)
-        app-commands (clim-config/ctx-app-commands context)]
+  (let [command   (clim-kdef/ctx-command context)
+        arguments (clim-kdef/ctx-cmd-args context)
+        app-commands (clim-kdef/ctx-app-commands context)]
     (if (contains? app-commands command)
       (let [{:keys [doc handler]} (get app-commands command)]
         (core-util/expected (some-fn ifn? kputil/fqvn?)

@@ -7,7 +7,7 @@
 ;   You must not remove this notice, or any other, from this software.
 
 
-(ns bract.cli.config
+(ns bract.cli.keydef
   (:require
     [keypin.core :as keypin]
     [keypin.util :as kputil]

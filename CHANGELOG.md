@@ -5,6 +5,7 @@
 
 - Use bract.core 0.4.0
   - [TODO] Use the GA version of bract.core 0.4.0
+- [BREAKING CHANGE] Rename `bract.cli.config` namespace to `bract.cli.keydef`
 
 
 ## 0.3.1 / 2017-June-30
