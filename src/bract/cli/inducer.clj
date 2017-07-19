@@ -13,7 +13,7 @@
     [clojure.pprint     :as pp]
     [clojure.tools.cli  :as cli]
     [keypin.util        :as kputil]
-    [bract.core.config  :as core-config]
+    [bract.core.keydef  :as core-kdef]
     [bract.core.inducer :as core-inducer]
     [bract.core.util    :as core-util]
     [bract.cli.config   :as clim-config]
@@ -24,7 +24,7 @@
   "Given context with key :bract.cli/cli-args, parse CLI args and return (potentially reduced) the context updated
   with config filename, CLI command and command-arguments."
   [context]
-  (let [cli-args (core-config/ctx-cli-args context)
+  (let [cli-args (core-kdef/ctx-cli-args context)
         {:keys [options
                 arguments
                 summary

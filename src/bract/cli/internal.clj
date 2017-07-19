@@ -11,7 +11,7 @@
   (:require
     [clojure.string    :as string]
     [bract.cli.config  :as clim-config]
-    [bract.core.config :as core-config]
+    [bract.core.keydef :as core-kdef]
     [bract.core.util   :as core-util]))
 
 
@@ -28,11 +28,11 @@
     context
     (let [verbose (get-in parse-result [:options :verbose])]
       (cond
-        (true? verbose)  (assoc context (key core-config/ctx-verbose?) true)
-        (false? verbose) (assoc context (key core-config/ctx-verbose?) false)
-        (nil? verbose)   (if (contains? context (key core-config/ctx-verbose?))
+        (true? verbose)  (assoc context (key core-kdef/ctx-verbose?) true)
+        (false? verbose) (assoc context (key core-kdef/ctx-verbose?) false)
+        (nil? verbose)   (if (contains? context (key core-kdef/ctx-verbose?))
                            context
-                           (assoc context (key core-config/ctx-verbose?) false))
+                           (assoc context (key core-kdef/ctx-verbose?) false))
         :otherwise       context))))
 
 
@@ -44,7 +44,7 @@
       (as-> config-filenames <>
         (string/split <> #",")
         (mapv string/trim <>)
-        (assoc context (key core-config/ctx-config-files) <>))
+        (assoc context (key core-kdef/ctx-config-files) <>))
       (if (clim-config/ctx-config-required? context)
         (do
           (core-util/err-println "No config file specified as argument")

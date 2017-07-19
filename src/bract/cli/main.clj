@@ -11,7 +11,7 @@
   "Provided entry-point for Bract CLI applications."
   (:require
     [bract.cli.inducer  :as clim-inducer]
-    [bract.core.config  :as core-config]
+    [bract.core.keydef  :as core-kdef]
     [bract.core.inducer :as core-inducer])
   (:gen-class))
 
@@ -39,4 +39,4 @@
 (defn -main
   "This function becomes the Java main() method entry point."
   [& args]
-  (trigger {(key core-config/ctx-cli-args) (vec args)}))
+  (trigger {(key core-kdef/ctx-cli-args) (vec args)}))

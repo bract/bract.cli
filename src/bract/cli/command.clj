@@ -9,30 +9,30 @@
 
 (ns bract.cli.command
   (:require
-    [bract.core.config :as core-config]))
+    [bract.core.keydef :as core-kdef]))
 
 
 (defn command-run
   "Run all steps."
   [context]
   (assoc context
-    (key core-config/ctx-launch?) true))
+    (key core-kdef/ctx-launch?) true))
 
 
 (defn command-dryrun
   "Run all steps except launch."
   [context]
   (assoc context
-    (key core-config/ctx-launch?) false))
+    (key core-kdef/ctx-launch?) false))
 
 
 (defn command-config
   "Print the given config using the format determined from the supplied config file names. Indicate flow-termination
   by returning reduced context"
   [context]
-  (let [config (core-config/ctx-config context)
-        config-filenames (core-config/ctx-config-files context)]
-    (core-config/print-config config config-filenames))
+  (let [config (core-kdef/ctx-config context)
+        config-filenames (core-kdef/ctx-config-files context)]
+    (core-kdef/print-config config config-filenames))
   (reduced context))
 
 
