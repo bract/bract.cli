@@ -1,10 +1,13 @@
 # bract.cli Change Log
 
+## TODO
 
-## [WIP] 0.4.0 / 2017-July-??
+- [TODO] Use the GA version of bract.core 0.4.0
 
-- Use bract.core 0.4.0
-  - [TODO] Use the GA version of bract.core 0.4.0
+
+## 0.4.0-alpha1 / 2017-July-31
+
+- Use bract.core 0.4.0-alpha1
 - [BREAKING CHANGE] Rename `bract.cli.config` namespace to `bract.cli.keydef`
 
 
