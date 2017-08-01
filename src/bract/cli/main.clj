@@ -45,8 +45,7 @@
   [& args]
   (try
     (trigger {(key core-kdef/ctx-context-file) "bract-context.edn"
-             (key core-kdef/ctx-inducers)     []
-             (key core-kdef/ctx-cli-args)     (vec args)})
+              (key core-kdef/ctx-cli-args)     (vec args)})
     (catch Throwable e
       (when (or (Thread/getDefaultUncaughtExceptionHandler)
               (.getUncaughtExceptionHandler ^Thread (Thread/currentThread)))
