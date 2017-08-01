@@ -12,7 +12,8 @@
   (:require
     [bract.cli.inducer  :as clim-inducer]
     [bract.core.keydef  :as core-kdef]
-    [bract.core.inducer :as core-inducer])
+    [bract.core.inducer :as core-inducer]
+    [bract.core.util    :as core-util])
   (:gen-class))
 
 
@@ -47,7 +48,5 @@
     (trigger {(key core-kdef/ctx-context-file) "bract-context.edn"
               (key core-kdef/ctx-cli-args)     (vec args)})
     (catch Throwable e
-      (when (or (Thread/getDefaultUncaughtExceptionHandler)
-              (.getUncaughtExceptionHandler ^Thread (Thread/currentThread)))
-        (.printStackTrace e))
+      (core-util/pst-when-uncaught-handler e)
       (throw e))))
