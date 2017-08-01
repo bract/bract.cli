@@ -8,6 +8,7 @@
 ## [WIP] 0.4.0-alpha2 / 2017-August-??
 
 - [TODO] Use bract.core 0.4.0-alpha2
+- Merge context from `bract-context.edn` in CLI entry point when available
 - [TODO] Catch exception and print stack trace in the main entry point (due to global uncaught handler)
 
 
