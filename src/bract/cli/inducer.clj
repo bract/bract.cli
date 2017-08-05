@@ -13,10 +13,10 @@
     [clojure.pprint     :as pp]
     [clojure.tools.cli  :as cli]
     [keypin.util        :as kputil]
-    [bract.core.config  :as core-config]
+    [bract.core.keydef  :as core-kdef]
     [bract.core.inducer :as core-inducer]
     [bract.core.util    :as core-util]
-    [bract.cli.config   :as clim-config]
+    [bract.cli.keydef   :as clim-kdef]
     [bract.cli.internal :as internal]))
 
 
@@ -24,7 +24,7 @@
   "Given context with key :bract.cli/cli-args, parse CLI args and return (potentially reduced) the context updated
   with config filename, CLI command and command-arguments."
   [context]
-  (let [cli-args (core-config/ctx-cli-args context)
+  (let [cli-args (core-kdef/ctx-cli-args context)
         {:keys [options
                 arguments
                 summary
@@ -35,7 +35,7 @@
       (:help options) (do
                         (core-util/err-println summary)
                         (core-util/err-println (str "\nCommands:\n"
-                                                 (->> (clim-config/ctx-app-commands context)
+                                                 (->> (clim-kdef/ctx-app-commands context)
                                                    (reduce-kv (fn [a command {doc :doc}]
                                                                 (conj a {"Command" command "Description" doc}))
                                                      [])
@@ -54,9 +54,9 @@
 
 (defn execute-command
   [context]
-  (let [command   (clim-config/ctx-command context)
-        arguments (clim-config/ctx-cmd-args context)
-        app-commands (clim-config/ctx-app-commands context)]
+  (let [command   (clim-kdef/ctx-command context)
+        arguments (clim-kdef/ctx-cmd-args context)
+        app-commands (clim-kdef/ctx-app-commands context)]
     (if (contains? app-commands command)
       (let [{:keys [doc handler]} (get app-commands command)]
         (core-util/expected (some-fn ifn? kputil/fqvn?)

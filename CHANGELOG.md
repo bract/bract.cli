@@ -1,5 +1,22 @@
 # bract.cli Change Log
 
+## TODO
+
+- [TODO] Use the GA version of bract.core 0.4.0
+
+
+## 0.4.0-alpha2 / 2017-August-01
+
+- Use bract.core 0.4.0-alpha2
+- Merge context from `bract-context.edn` in CLI entry point when available
+- Catch exception and print stack trace in the main entry point (due to uncaught handler)
+
+
+## 0.4.0-alpha1 / 2017-July-31
+
+- Use bract.core 0.4.0-alpha1
+- [BREAKING CHANGE] Rename `bract.cli.config` namespace to `bract.cli.keydef`
+
 
 ## 0.3.1 / 2017-June-30
 

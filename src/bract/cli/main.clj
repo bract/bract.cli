@@ -11,32 +11,42 @@
   "Provided entry-point for Bract CLI applications."
   (:require
     [bract.cli.inducer  :as clim-inducer]
-    [bract.core.config  :as core-config]
-    [bract.core.inducer :as core-inducer])
+    [bract.core.keydef  :as core-kdef]
+    [bract.core.inducer :as core-inducer]
+    [bract.core.util    :as core-util])
   (:gen-class))
 
 
 (defn trigger
   "Implementation detail for the CLI main entry point. Trigger execution of the following inducers in a sequence on the
   given context:
-  bract.core.inducer/set-verbosity   ; set default verbosity
-  bract.cli.inducer/parse-args       ; parse CLI arguments and populate context
-  bract.core.inducer/set-verbosity   ; set user-preferred verbosity
-  bract.core.inducer/read-config     ; read config file(s) and populate context
-  bract.cli.inducer/execute-command  ; execute the resolved command
-  bract.core.inducer/run-config-inducers ; finally run the configured inducers"
+  bract.core.inducer/set-verbosity        ; set default verbosity
+  bract.cli.inducer/parse-args            ; parse CLI arguments and populate context
+  bract.core.inducer/set-verbosity        ; set user-preferred verbosity
+  bract.core.inducer/read-context         ; read pre-config context
+  bract.core.inducer/run-context-inducers ; run pre-config inducers
+  bract.core.inducer/read-config          ; read config file(s) and populate context
+  bract.cli.inducer/execute-command       ; execute the resolved command
+  bract.core.inducer/run-config-inducers  ; finally run the configured inducers"
   [context]
   (core-inducer/induce context
-    [core-inducer/set-verbosity   ; set default verbosity
-     clim-inducer/parse-args      ; parse CLI arguments and populate context
-     core-inducer/set-verbosity   ; set user-preferred verbosity
-     core-inducer/read-config     ; read config file(s) and populate context
-     clim-inducer/execute-command ; execute the resolved command
-     core-inducer/run-config-inducers ; finally run the configured inducers
+    [core-inducer/set-verbosity        ; set default verbosity
+     clim-inducer/parse-args           ; parse CLI arguments and populate context
+     core-inducer/set-verbosity        ; set user-preferred verbosity
+     core-inducer/read-context         ; read pre-config context
+     core-inducer/run-context-inducers ; run pre-config inducers
+     core-inducer/read-config          ; read config file(s) and populate context
+     clim-inducer/execute-command      ; execute the resolved command
+     core-inducer/run-config-inducers  ; finally run the configured inducers
      ]))
 
 
 (defn -main
   "This function becomes the Java main() method entry point."
   [& args]
-  (trigger {(key core-config/ctx-cli-args) (vec args)}))
+  (try
+    (trigger {(key core-kdef/ctx-context-file) "bract-context.edn"
+              (key core-kdef/ctx-cli-args)     (vec args)})
+    (catch Throwable e
+      (core-util/pst-when-uncaught-handler e)
+      (throw e))))
