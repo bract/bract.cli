@@ -5,7 +5,7 @@
 None
 
 
-## [WIP] 0.4.1 / 2017-August-??
+## 0.4.1 / 2017-August-08
 
 - Use bract.core 0.4.1
 
