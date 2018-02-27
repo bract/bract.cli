@@ -11,6 +11,7 @@
   "Provided entry-point for Bract CLI applications."
   (:require
     [bract.cli.inducer  :as clim-inducer]
+    [bract.cli.keydef   :as clim-kdef]
     [bract.core.keydef  :as core-kdef]
     [bract.core.inducer :as core-inducer]
     [bract.core.util    :as core-util])
@@ -22,6 +23,8 @@
   given context:
   bract.core.inducer/set-verbosity        ; set default verbosity
   bract.core.inducer/read-context         ; read the pre-CLI, pre-config context
+  [bract.core.inducer/run-context-inducers
+   :bract.cli/pre-inducers]               ; run pre-CLI inducers
   bract.cli.inducer/parse-args            ; parse CLI arguments and populate context
   bract.core.inducer/set-verbosity        ; set user-preferred verbosity
   bract.core.inducer/run-context-inducers ; run pre-config inducers
@@ -32,6 +35,8 @@
   (core-inducer/induce context
     [core-inducer/set-verbosity        ; set default verbosity
      core-inducer/read-context         ; read the pre-CLI, pre-config context
+     '(bract.core.inducer/run-context-inducers
+        :bract.cli/pre-inducers)       ; run the pre-CLI inducers
      clim-inducer/parse-args           ; parse CLI arguments and populate context
      core-inducer/set-verbosity        ; set user-preferred verbosity
      core-inducer/run-context-inducers ; run pre-config inducers
@@ -46,6 +51,7 @@
   [& args]
   (try
     (when-let [exit-code (-> {(key core-kdef/ctx-context-file) "bract-context.edn"
+                              (key clim-kdef/ctx-pre-inducers) []
                               (key core-kdef/ctx-cli-args)     (vec args)}
                            trigger
                            core-kdef/ctx-jvm-exit-code)]
