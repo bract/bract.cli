@@ -21,9 +21,9 @@
   "Implementation detail for the CLI main entry point. Trigger execution of the following inducers in a sequence on the
   given context:
   bract.core.inducer/set-verbosity        ; set default verbosity
+  bract.core.inducer/read-context         ; read the pre-CLI, pre-config context
   bract.cli.inducer/parse-args            ; parse CLI arguments and populate context
   bract.core.inducer/set-verbosity        ; set user-preferred verbosity
-  bract.core.inducer/read-context         ; read pre-config context
   bract.core.inducer/run-context-inducers ; run pre-config inducers
   bract.core.inducer/read-config          ; read config file(s) and populate context
   bract.cli.inducer/execute-command       ; execute the resolved command
@@ -31,9 +31,9 @@
   [context]
   (core-inducer/induce context
     [core-inducer/set-verbosity        ; set default verbosity
+     core-inducer/read-context         ; read the pre-CLI, pre-config context
      clim-inducer/parse-args           ; parse CLI arguments and populate context
      core-inducer/set-verbosity        ; set user-preferred verbosity
-     core-inducer/read-context         ; read pre-config context
      core-inducer/run-context-inducers ; run pre-config inducers
      core-inducer/read-config          ; read config file(s) and populate context
      clim-inducer/execute-command      ; execute the resolved command

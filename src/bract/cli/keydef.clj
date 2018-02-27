@@ -22,6 +22,7 @@
 
 (keypin/defkey
   ctx-config-required? [:bract.cli/config-required? kputil/bool? "Config file required?" {:default false}]
+  ctx-pre-inducers     [:bract.cli/pre-inducers     vector?      "Inducers to run before CLI arg parsing" {:default []}]
   ctx-command          [:bract.cli/command          string?      "The CLI command to execute"]
   ctx-cmd-args         [:bract.cli/cmd-args         (kputil/vec?
                                                       string?)   "Arguments for the CLI command"]
