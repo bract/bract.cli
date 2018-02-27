@@ -45,8 +45,11 @@
   "This function becomes the Java main() method entry point."
   [& args]
   (try
-    (trigger {(key core-kdef/ctx-context-file) "bract-context.edn"
-              (key core-kdef/ctx-cli-args)     (vec args)})
+    (when-let [exit-code (-> {(key core-kdef/ctx-context-file) "bract-context.edn"
+                              (key core-kdef/ctx-cli-args)     (vec args)}
+                           trigger
+                           core-kdef/ctx-jvm-exit-code)]
+      (System/exit (int exit-code)))
     (catch Throwable e
       (core-util/pst-when-uncaught-handler e)
       (throw e))))
