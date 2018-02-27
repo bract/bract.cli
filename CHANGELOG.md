@@ -2,7 +2,11 @@
 
 ## TODO
 
-None
+- [TODO] Use bract.core 0.5.1
+- [TODO] Fix commands visibility in CLI help message
+  - [TODO] In root CLI inducers move `read-context` ahead of `parse-args`
+  - [TODO] Add `:bract.cli/pre-parse-inducers` to run before parsing CLI args
+- [TODO] Make `bract.cli.main/-main` return exit code using `bract.core/exit-code`
 
 
 ## 0.5.0 / 2018-February-18

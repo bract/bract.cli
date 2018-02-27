@@ -5,7 +5,7 @@ CLI support module for Bract.
 
 ## Clojars coordinates
 
-`[bract/bract.cli "0.5.0"]`
+`[bract/bract.cli "0.5.1-SNAPSHOT"]`
 
 
 ## Documentation
