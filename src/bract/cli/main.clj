@@ -54,7 +54,7 @@
                               (key clim-kdef/ctx-pre-inducers) []
                               (key core-kdef/ctx-cli-args)     (vec args)}
                            trigger
-                           core-kdef/ctx-jvm-exit-code)]
+                           core-kdef/ctx-app-exit-code)]
       (System/exit (int exit-code)))
     (catch Throwable e
       (core-util/pst-when-uncaught-handler e)
