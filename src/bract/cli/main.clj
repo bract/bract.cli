@@ -33,16 +33,16 @@
   bract.core.inducer/run-config-inducers  ; finally run the configured inducers"
   [context]
   (core-inducer/induce context
-    [core-inducer/set-verbosity        ; set default verbosity
-     core-inducer/read-context         ; read the pre-CLI, pre-config context
-     '(bract.core.inducer/run-context-inducers
-        :bract.cli/pre-inducers)       ; run the pre-CLI inducers
-     clim-inducer/parse-args           ; parse CLI arguments and populate context
-     core-inducer/set-verbosity        ; set user-preferred verbosity
-     core-inducer/run-context-inducers ; run pre-config inducers
-     core-inducer/read-config          ; read config file(s) and populate context
-     clim-inducer/execute-command      ; execute the resolved command
-     core-inducer/run-config-inducers  ; finally run the configured inducers
+    [core-inducer/set-verbosity            ; set default verbosity
+     core-inducer/read-context             ; read the pre-CLI, pre-config context
+     (list core-inducer/run-context-inducers
+       (key clim-kdef/ctx-pre-inducers))   ; run pre-CLI inducers
+     clim-inducer/parse-args               ; parse CLI arguments and populate context
+     core-inducer/set-verbosity            ; set user-preferred verbosity
+     core-inducer/run-context-inducers     ; run pre-config inducers
+     core-inducer/read-config              ; read config file(s) and populate context
+     clim-inducer/execute-command          ; execute the resolved command
+     core-inducer/run-config-inducers      ; finally run the configured inducers
      ]))
 
 
