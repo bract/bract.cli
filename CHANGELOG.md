@@ -7,6 +7,7 @@
 - Fix commands visibility in CLI help message
   - In root CLI inducers move `read-context` ahead of `parse-args`
   - Run inducers `:bract.cli/pre-inducers` before parsing CLI args
+  - Include default (minimal) CLI commands in `bract.cli.main/-main` root context
 - Make `bract.cli.main/-main` return exit code using `:bract.core/app-exit-code`
 
 

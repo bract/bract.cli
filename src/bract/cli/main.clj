@@ -51,6 +51,7 @@
   [& args]
   (try
     (when-let [exit-code (-> {(key core-kdef/ctx-context-file) "bract-context.edn"
+                              (key clim-kdef/ctx-app-commands) clim-kdef/default-commands
                               (key clim-kdef/ctx-pre-inducers) []
                               (key core-kdef/ctx-cli-args)     (vec args)}
                            trigger
