@@ -17,6 +17,23 @@
     [java.io ByteArrayInputStream StringReader]))
 
 
+(deftest test-merge-commands
+  (is (= {:bract.cli/app-commands (merge clim-kdef/default-commands
+                                    {"foo" {:doc "test"
+                                            :handler 'identity}})}
+        (clim-inducer/merge-commands {} {"foo" {:doc "test"
+                                                :handler 'identity}})))
+  (is (= {:bract.cli/app-commands {"foo" {:doc "test foo"
+                                          :handler 'identity}
+                                   "bar" {:doc "test bar"
+                                          :handler 'identity}}}
+        (clim-inducer/merge-commands
+          {:bract.cli/app-commands {"foo" {:doc "test foo"
+                                           :handler 'identity}}}
+          {"bar" {:doc "test bar"
+                  :handler 'identity}}))))
+
+
 (deftest test-parse-args
   (is (thrown? IllegalArgumentException
         (clim-inducer/parse-args {})) "missing CLI args")

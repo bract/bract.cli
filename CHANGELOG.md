@@ -1,6 +1,6 @@
 # bract.cli Change Log
 
-## TODO
+## [WIP] 0.5.1 / 2018-February-??
 
 - Use bract.core 0.5.1
   - [TODO] Use the GA version
@@ -8,6 +8,7 @@
   - In root CLI inducers move `read-context` ahead of `parse-args`
   - Run inducers `:bract.cli/pre-inducers` before parsing CLI args
   - Include default (minimal) CLI commands in `bract.cli.main/-main` root context
+  - Add inducer `bract.cli.inducer/merge-commands` to merge old and new commands
 - Make `bract.cli.main/-main` return exit code using `:bract.core/app-exit-code`
 
 
