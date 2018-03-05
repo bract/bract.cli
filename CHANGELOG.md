@@ -6,7 +6,7 @@
   - Bootstrap off the context inducers (which may optionally include config inducers)
 
 
-## [WIP] 0.5.1 / 2018-March-??
+## 0.5.1 / 2018-March-05
 
 - Use bract.core 0.5.1
 - Fix commands visibility in CLI help message
