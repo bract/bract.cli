@@ -1,8 +1,20 @@
 # bract.cli Change Log
 
-## TODO
+## Todo
 
-None
+- [Todo] Exclude config inducers from root
+  - Bootstrap off the context inducers (which may optionally include config inducers)
+
+
+## [WIP] 0.5.1 / 2018-March-??
+
+- Use bract.core 0.5.1
+- Fix commands visibility in CLI help message
+  - In root CLI inducers move `read-context` ahead of `parse-args`
+  - Run inducers `:bract.cli/pre-inducers` before parsing CLI args
+  - Include default (minimal) CLI commands in `bract.cli.main/-main` root context
+  - Add inducer `bract.cli.inducer/merge-commands` to merge old and new commands
+- Make `bract.cli.main/-main` return exit code using `:bract.core/app-exit-code`
 
 
 ## 0.5.0 / 2018-February-18

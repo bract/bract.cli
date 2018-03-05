@@ -21,19 +21,23 @@
 (deftest test-main
   (testing "no arg, one pre-configured inducer"
     (let [context (main/trigger {:bract.core/cli-args []
+                                 :bract.cli/pre-inducers []
                                  :inc-target 0
                                  :bract.core/config {"bract.core.inducers" ['bract.cli.main-test/inc-inducer]}})]
       (is (= 1 (:inc-target context)))))
   (testing "no arg, one inducer in config file"
     (let [context (main/trigger {:bract.core/cli-args []
+                                 :bract.cli/pre-inducers []
                                  :inc-target 0
                                  :bract.core/config-files "sample.edn"})]
       (is (= 1 (:inc-target context)))))
   (testing "no arg, one inducer in pre-specified config file"
     (let [context (main/trigger {:bract.core/cli-args ["-f" "sample.edn"]
+                                 :bract.cli/pre-inducers []
                                  :inc-target 0})]
       (is (= 1 (:inc-target context)))))
   (testing "CLI arg, config file"
     (let [context (main/trigger {:bract.core/cli-args ["-f" "sample.edn"]
+                                 :bract.cli/pre-inducers []
                                  :inc-target 0})]
       (is (= 1 (:inc-target context))))))

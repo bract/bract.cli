@@ -20,6 +20,15 @@
     [bract.cli.internal :as internal]))
 
 
+(defn merge-commands
+  "Merge given CLI command map (key: command-string, value: {:doc string :handler (fn [context]) -> context}) to the
+  existing one."
+  [context new-commands]
+  (let [old-commands (clim-kdef/ctx-app-commands context)]
+    (assoc context
+      (key clim-kdef/ctx-app-commands) (merge old-commands new-commands))))
+
+
 (defn parse-args
   "Given context with key :bract.cli/cli-args, parse CLI args and return (potentially reduced) the context updated
   with config filename, CLI command and command-arguments."
