@@ -1,9 +1,14 @@
 # bract.cli Change Log
 
-## [WIP] 0.5.1 / 2018-February-??
+## Todo
+
+- [Todo] Exclude config inducers from root
+  - Bootstrap off the context inducers (which may optionally include config inducers)
+
+
+## [WIP] 0.5.1 / 2018-March-??
 
 - Use bract.core 0.5.1
-  - [TODO] Use the GA version
 - Fix commands visibility in CLI help message
   - In root CLI inducers move `read-context` ahead of `parse-args`
   - Run inducers `:bract.cli/pre-inducers` before parsing CLI args
