@@ -2,8 +2,13 @@
 
 ## Todo
 
+- None
+
+
+## [WIP] 0.6.0 / 2018-March-??
+
 - [Todo] Exclude config inducers from root
-  - Bootstrap off the context inducers (which may optionally include config inducers)
+  - Bootstrap off the context inducers (which may only optionally include config inducers)
 
 
 ## 0.5.1 / 2018-March-05
