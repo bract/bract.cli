@@ -7,8 +7,12 @@
 
 ## [WIP] 0.6.0 / 2018-March-??
 
+- Use bract.core 0.6.0
+  - [Todo] Use the GA version
 - [Todo] Exclude config inducers from root
   - Bootstrap off the context inducers (which may only optionally include config inducers)
+- [Todo] Drop `bract.cli.main/trigger`
+- [Todo] Base `bract.cli.main` on `bract.core.main`
 
 
 ## 0.5.1 / 2018-March-05
