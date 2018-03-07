@@ -1,0 +1,3 @@
+{:app/cfg-inducers [bract.cli.inducer/parse-args
+                    bract.core.inducer/read-config
+                    bract.cli.inducer/execute-command]}
