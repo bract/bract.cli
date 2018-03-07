@@ -1,3 +1,4 @@
-{:app/cfg-inducers [bract.cli.inducer/parse-args
-                    bract.core.inducer/read-config
-                    bract.cli.inducer/execute-command]}
+{"parent.filenames" ["bract/core/context.edn"]
+ :app/cfg-inducers  [bract.cli.inducer/parse-args
+                     bract.core.inducer/read-config
+                     bract.cli.inducer/execute-command]}
