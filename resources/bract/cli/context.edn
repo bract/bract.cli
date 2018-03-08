@@ -1,4 +1,7 @@
-{:app/cfg-inducers [bract.cli.inducer/parse-args
+{;;
+ ;; bract.cli default context
+ ;;
+ :app/cfg-inducers [bract.cli.inducer/parse-args
                     bract.core.inducer/read-config
                     bract.core.inducer/set-verbosity
                     bract.cli.inducer/execute-command]}
