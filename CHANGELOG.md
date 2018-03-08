@@ -16,9 +16,6 @@
 - [TODO - BREAKING CHANGE] Drop `bract.cli.keydef/ctx-pre-inducers`
 - [Todo] Drop `bract.cli.main/trigger`
 - [Todo] Base `bract.cli.main` on `bract.core.main`
-- Resources
-  - Base context entries in `bract/cli/context.edn`
-  - Dev context entries in `bract/cli/context.dev.edn`
 
 
 ## 0.5.1 / 2018-March-05
