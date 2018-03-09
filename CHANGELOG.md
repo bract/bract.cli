@@ -10,7 +10,7 @@
 - Use bract.core 0.6.0
   - [Todo] Use the GA version
 - [BREAKING CHANGE] Drop namespace `bract.cli.main` in favor of `bract.core.main`
-- [TODO - BREAKING CHANGE] Drop `bract.cli.keydef/ctx-pre-inducers`
+- [BREAKING CHANGE] Drop key definition `:bract.cli/pre-inducers`
 
 
 ## 0.5.1 / 2018-March-05
