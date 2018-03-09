@@ -9,13 +9,8 @@
 
 - Use bract.core 0.6.0
   - [Todo] Use the GA version
-- [TODO - BREAKING CHANGE] Update root inducers
-  - [Todo] Exclude config inducers from root
-  - Bootstrap off the context inducers (which may only optionally include config inducers)
-- [TODO - BREAKING CHANGE] Drop namespace `bract.cli.main`
+- [BREAKING CHANGE] Drop namespace `bract.cli.main` in favor of `bract.core.main`
 - [TODO - BREAKING CHANGE] Drop `bract.cli.keydef/ctx-pre-inducers`
-- [Todo] Drop `bract.cli.main/trigger`
-- [Todo] Base `bract.cli.main` on `bract.core.main`
 
 
 ## 0.5.1 / 2018-March-05
