@@ -8,7 +8,6 @@
 ## [WIP] 0.6.0 / 2018-March-??
 
 - Use bract.core 0.6.0
-  - [Todo] Use the GA version
 - [BREAKING CHANGE] Drop namespace `bract.cli.main` in favor of `bract.core.main`
 - [BREAKING CHANGE] Drop key definition `:bract.cli/pre-inducers`
 
