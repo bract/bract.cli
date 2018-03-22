@@ -5,7 +5,7 @@
 - None
 
 
-## [WIP] 0.6.0-alpha2 / 2018-March-??
+## 0.6.0-alpha2 / 2018-March-22
 
 - Use bract.core 0.6.0-alpha2
 
