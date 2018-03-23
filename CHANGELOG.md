@@ -5,6 +5,12 @@
 - None
 
 
+## [WIP] 0.6.0-alpha3 / 2018-March-??
+
+- [Todo] Use bract.core 0.6.0-alpha3
+- [Todo] Fix commands to exit inducer-chain at all levels
+
+
 ## 0.6.0-alpha2 / 2018-March-22
 
 - Use bract.core 0.6.0-alpha2
