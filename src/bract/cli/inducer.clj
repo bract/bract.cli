@@ -71,8 +71,10 @@
         (core-util/expected (some-fn ifn? kputil/fqvn?)
           "CLI-command handler function or fully qualified fn name" handler)
         (core-inducer/apply-inducer "CLI command-handler" context handler))
-      (core-util/expected (format "a valid command %s" (->> (keys app-commands)
-                                                         (concat (keys app-commands))
-                                                         vec
-                                                         pr-str))
-        command))))
+      (do
+        (core-util/err-println (format "ERROR: Expected a valid command %s, but found '%s'."
+                                 (->> (keys app-commands)
+                                   vec
+                                   pr-str)
+                                 command))
+        (core-kdef/induce-exit context 1)))))
