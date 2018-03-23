@@ -8,7 +8,6 @@
 ## [WIP] 0.6.0-alpha3 / 2018-March-??
 
 - Use bract.core 0.6.0-alpha3
-  - [Todo] Use GA version
 - Fix command handling to exit inducer-chain at all levels
 - Print error message on bad command, not emit stack trace
 
