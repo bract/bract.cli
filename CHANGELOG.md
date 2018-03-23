@@ -9,7 +9,7 @@
 
 - Use bract.core 0.6.0-alpha3
   - [Todo] Use GA version
-- [Todo] Fix commands to exit inducer-chain at all levels
+- Fix command handling to exit inducer-chain at all levels
 
 
 ## 0.6.0-alpha2 / 2018-March-22

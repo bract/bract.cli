@@ -91,7 +91,7 @@
   (is (not (reduced?
              (clim-inducer/execute-command {(key clim-kdef/ctx-command) "dryrun"
                                             (key clim-kdef/ctx-cmd-args) []}))) "the `dryrun` command")
-  (is (reduced?
+  (is (core-kdef/ctx-exit?
         (clim-inducer/execute-command {(key core-kdef/ctx-config) {"foo" "bar"}
                                        (key clim-kdef/ctx-command) "config"
                                        (key clim-kdef/ctx-cmd-args) []})) "the `config` command")

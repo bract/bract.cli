@@ -50,10 +50,10 @@
                                                      [])
                                                    pp/print-table
                                                    with-out-str)))
-                        (reduced context))
+                        (core-kdef/induce-exit context))
       errors          (do
                         (core-util/err-println (string/join \newline errors))
-                        (reduced context))
+                        (core-kdef/induce-exit context))
       :otherwise      (-> context
                         (internal/assoc-verbose     parse-result)
                         (internal/assoc-config-file parse-result)
