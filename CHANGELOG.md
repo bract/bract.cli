@@ -5,7 +5,7 @@
 - None
 
 
-## [WIP] 0.6.0-alpha4 / 2018-March-??
+## 0.6.0-alpha4 / 2018-March-25
 
 - Upgrade bract.core to version `0.6.0-alpha4`
 - Use `:bract.core/exit` instead of `reduced` for CLI processing
