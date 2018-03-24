@@ -5,8 +5,9 @@
 - None
 
 
-## Unnamed / 2018-March-??
+## [WIP] 0.6.0-alpha4 / 2018-March-??
 
+- Upgrade bract.core to version `0.6.0-alpha4`
 - Use `:bract.core/exit` instead of `reduced` for CLI processing
 - Honor pre-defined config filenames when not specified at CLI
 
