@@ -37,7 +37,7 @@
 (deftest test-parse-args
   (is (thrown? IllegalArgumentException
         (clim-inducer/parse-args {})) "missing CLI args")
-  (is (reduced?
+  (is (core-kdef/ctx-exit?
         (clim-inducer/parse-args {(key clim-kdef/ctx-config-required?) true
                                   (key core-kdef/ctx-cli-args) ["-c" "hey"]})) "config file required but not passed")
   (let [context {(key core-kdef/ctx-cli-args) ["-f" "foo.edn"]}]
