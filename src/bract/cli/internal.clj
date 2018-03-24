@@ -42,11 +42,11 @@
     context
     (if-let [config-filenames (or (get-in parse-result [:options :config-file])
                                 (seq (core-kdef/ctx-config-files context)))]
-      (as-> config-filenames <>
-        (core-util/as-vec <>)
-        (mapcat #(string/split % #",") <>)
-        (mapv string/trim <>)
-        (assoc context (key core-kdef/ctx-config-files) <>))
+      (->> config-filenames
+        core-util/as-vec
+        (mapcat #(string/split % #","))
+        (mapv string/trim)
+        (assoc context (key core-kdef/ctx-config-files)))
       (if (clim-kdef/ctx-config-required? context)
         (do
           (core-util/err-println "ERROR: No config file specified as argument")
