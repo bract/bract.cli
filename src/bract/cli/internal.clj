@@ -40,9 +40,11 @@
   [context parse-result]
   (if (or (reduced? context) (core-kdef/ctx-exit? context))
     context
-    (if-let [config-filenames (get-in parse-result [:options :config-file])]
+    (if-let [config-filenames (or (get-in parse-result [:options :config-file])
+                                (seq (core-kdef/ctx-config-files context)))]
       (as-> config-filenames <>
-        (string/split <> #",")
+        (core-util/as-vec <>)
+        (mapcat #(string/split % #",") <>)
         (mapv string/trim <>)
         (assoc context (key core-kdef/ctx-config-files) <>))
       (if (clim-kdef/ctx-config-required? context)

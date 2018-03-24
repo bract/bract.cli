@@ -5,6 +5,12 @@
 - None
 
 
+## Unnamed / 2018-March-??
+
+- Use `:bract.core/exit` instead of `reduced` for CLI processing
+- Honor pre-defined config filenames when not specified at CLI
+
+
 ## 0.6.0-alpha3 / 2018-March-23
 
 - Use bract.core 0.6.0-alpha3
