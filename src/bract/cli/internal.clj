@@ -47,7 +47,7 @@
         (assoc context (key core-kdef/ctx-config-files) <>))
       (if (clim-kdef/ctx-config-required? context)
         (do
-          (core-util/err-println "No config file specified as argument")
+          (core-util/err-println "ERROR: No config file specified as argument")
           (core-util/err-println (get-in parse-result [:summary]))
           (core-kdef/induce-exit context 1))
         context))))
