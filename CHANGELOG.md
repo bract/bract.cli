@@ -5,6 +5,11 @@
 - None
 
 
+## 0.6.0-beta1 / 2018-March-27
+
+- Upgrade bract.core to version `0.6.0-beta1`
+
+
 ## 0.6.0-alpha4 / 2018-March-25
 
 - Upgrade bract.core to version `0.6.0-alpha4`
