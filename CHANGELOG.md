@@ -2,7 +2,16 @@
 
 ## Todo
 
-- None
+None
+
+
+## [WIP] 0.6.0-beta2 / 2018-April-??
+
+- [Todo] Upgrade bract.core to version `0.6.0-beta2`
+- [Todo] Upgrade tools.cli version to `0.3.6`
+  - For `--no` prefix support for boolean args
+- [Todo] Add inducer `merge-launch-commands`
+  - Commands that only alter the launch command
 
 
 ## 0.6.0-beta1 / 2018-March-27
