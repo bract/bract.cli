@@ -34,6 +34,19 @@
                   :handler 'identity}}))))
 
 
+(deftest test-merge-launch-commands
+  (let [context (clim-inducer/merge-launch-commands {} {"foo" {:doc "test"
+                                                               :handler 'identity}})]
+    (is (contains? context :bract.cli/app-commands))
+    (is (fn? (get-in context [:bract.cli/app-commands "foo" :handler]))))
+  (let [context (clim-inducer/merge-launch-commands
+                  {:bract.cli/app-commands {"foo" {:doc "test foo"
+                                                   :handler 'identity}}}
+                  {"bar" {:doc "test bar"
+                          :handler 'identity}})]
+    (is (fn? (get-in context [:bract.cli/app-commands "bar" :handler])))))
+
+
 (deftest test-parse-args
   (is (thrown? IllegalArgumentException
         (clim-inducer/parse-args {})) "missing CLI args")

@@ -11,7 +11,7 @@ None
   - [Todo] Use GA version
 - Upgrade tools.cli version to `0.3.6`
   - For `--no` prefix support for boolean args
-- [Todo] Add inducer `merge-launch-commands`
+- Add inducer `merge-launch-commands`
   - Commands that only alter the launch command
 
 
