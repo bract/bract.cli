@@ -27,6 +27,11 @@
   [context new-commands]
   (echo/echo "Adding CLI commands:" (keys new-commands))
   (->> new-commands
+    (reduce-kv (fn [m k command]
+                 (core-util/expected :handler
+                   "command to have a :handler key with corresponding function or fully qualified name" command)
+                 (assoc m k command))
+      {})
     (merge (clim-kdef/ctx-app-commands context))  ; merge/assoc instead of update to enforce app-commands validation
     (assoc context (key clim-kdef/ctx-app-commands))))
 
@@ -40,13 +45,18 @@
                                                     (zipmap (keys new-commands))))
   (->> new-commands
     (reduce-kv (fn [m k command]
-                 (->> (fn [launcher]
-                        (fn update-launcher [context]
-                          (assoc context
-                            (key core-kdef/ctx-launch?) true
-                            (key core-kdef/ctx-launcher) launcher)))
-                   (update command :handler)
-                   (assoc m k)))
+                 (as-> (fn make-updater [launchers]
+                         (core-util/expected coll?
+                           "a collection of launcher functions or their fully qualified names at key :launchers"
+                           launchers)
+                         (fn update-launchers [context]
+                           (assoc context
+                             (key core-kdef/ctx-launch?) true
+                             (key core-kdef/ctx-launchers) launchers)))
+                   $
+                   ($ (:launchers command))
+                   (assoc command :handler $)
+                   (assoc m k $)))
       {})
     (merge (clim-kdef/ctx-app-commands context))  ; merge/assoc instead of update to enforce app-commands validation
     (assoc context (key clim-kdef/ctx-app-commands))))
