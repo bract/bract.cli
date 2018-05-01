@@ -8,7 +8,6 @@ None
 ## [WIP] 0.6.0-beta2 / 2018-April-??
 
 - Upgrade bract.core to version `0.6.0-beta2`
-  - [Todo] Use GA version
 - Upgrade tools.cli version to `0.3.6`
   - For `--no` prefix support for boolean args
 - Add inducer `merge-launch-commands`

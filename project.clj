@@ -6,7 +6,7 @@
   :global-vars {*warn-on-reflection* true
                 *assert* true
                 *unchecked-math* :warn-on-boxed}
-  :dependencies [[bract/bract.core "0.6.0-beta2-SNAPSHOT"]
+  :dependencies [[bract/bract.core "0.6.0-beta2"]
                  [org.clojure/tools.cli "0.3.6" :exclusions [org.clojure/clojure]]]
   :profiles {:provided {:dependencies [[org.clojure/clojure "1.7.0"]]}
              :coverage {:plugins [[lein-cloverage "1.0.9"]]}
