@@ -5,7 +5,7 @@
 None
 
 
-## [WIP] 0.6.0-beta2 / 2018-April-??
+## 0.6.0-beta2 / 2018-May-01
 
 - Upgrade bract.core to version `0.6.0-beta2`
 - Upgrade tools.cli version to `0.3.6`
