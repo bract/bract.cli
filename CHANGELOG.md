@@ -7,52 +7,18 @@ None
 
 ## [WIP] 0.6.0-0.1.0 / 2018-May-??
 
-- Use bract.core 0.6.0
-
-
-## 0.6.0-beta3 / 2018-May-12
-
-- Upgrade bract.core to version `0.6.0-beta3`
-
-
-## 0.6.0-beta2 / 2018-May-01
-
-- Upgrade bract.core to version `0.6.0-beta2`
-- Upgrade tools.cli version to `0.3.6`
-  - For `--no` prefix support for boolean args
-- Add inducer `merge-launch-commands`
-  - Commands that only alter the launch command
-
-
-## 0.6.0-beta1 / 2018-March-27
-
-- Upgrade bract.core to version `0.6.0-beta1`
-
-
-## 0.6.0-alpha4 / 2018-March-25
-
-- Upgrade bract.core to version `0.6.0-alpha4`
-- Use `:bract.core/exit` instead of `reduced` for CLI processing
-- Honor pre-defined config filenames when not specified at CLI
-
-
-## 0.6.0-alpha3 / 2018-March-23
-
-- Use bract.core 0.6.0-alpha3
+- [BREAKING CHANGE] Drop namespace `bract.cli.main` in favor of `bract.core.main`
 - Fix command handling to exit inducer-chain at all levels
 - Print error message on bad command, not emit stack trace
-
-
-## 0.6.0-alpha2 / 2018-March-22
-
-- Use bract.core 0.6.0-alpha2
-
-
-## 0.6.0-alpha1 / 2018-March-14
-
-- Use bract.core 0.6.0-alpha1
-- [BREAKING CHANGE] Drop namespace `bract.cli.main` in favor of `bract.core.main`
-- [BREAKING CHANGE] Drop key definition `:bract.cli/pre-inducers`
+- Use `:bract.core/exit` instead of `reduced` for CLI processing
+- Honor pre-defined config filenames when not specified at CLI
+- Version upgrades
+  - Use bract.core 0.6.0
+  - Upgrade tools.cli version to `0.3.6` (for `--no` prefix support for boolean args)
+- Key definition
+  - [BREAKING CHANGE] Drop key definition `:bract.cli/pre-inducers`
+- Inducers
+  - Add inducer `merge-launch-commands` - (commands that only update the launcher fns)
 
 
 ## 0.5.1 / 2018-March-05
