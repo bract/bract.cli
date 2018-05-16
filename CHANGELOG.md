@@ -2,8 +2,23 @@
 
 ## Todo
 
-- [Todo] Exclude config inducers from root
-  - Bootstrap off the context inducers (which may optionally include config inducers)
+None
+
+
+## [WIP] 0.6.0-0.1.0 / 2018-May-??
+
+- [BREAKING CHANGE] Drop namespace `bract.cli.main` in favor of `bract.core.main`
+- Fix command handling to exit inducer-chain at all levels
+- Print error message on bad command, not emit stack trace
+- Use `:bract.core/exit` instead of `reduced` for CLI processing
+- Honor pre-defined config filenames when not specified at CLI
+- Version upgrades
+  - Use bract.core 0.6.0
+  - Upgrade tools.cli version to `0.3.6` (for `--no` prefix support for boolean args)
+- Key definition
+  - [BREAKING CHANGE] Drop key definition `:bract.cli/pre-inducers`
+- Inducers
+  - Add inducer `merge-launch-commands` - (commands that only update the launcher fns)
 
 
 ## 0.5.1 / 2018-March-05

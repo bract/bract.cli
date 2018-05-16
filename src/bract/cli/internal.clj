@@ -24,7 +24,7 @@
 
 (defn assoc-verbose
   [context parse-result]
-  (if (reduced? context)
+  (if (or (reduced? context) (core-kdef/ctx-exit? context))
     context
     (let [verbose (get-in parse-result [:options :verbose])]
       (cond
@@ -38,24 +38,26 @@
 
 (defn assoc-config-file
   [context parse-result]
-  (if (reduced? context)
+  (if (or (reduced? context) (core-kdef/ctx-exit? context))
     context
-    (if-let [config-filenames (get-in parse-result [:options :config-file])]
-      (as-> config-filenames <>
-        (string/split <> #",")
-        (mapv string/trim <>)
-        (assoc context (key core-kdef/ctx-config-files) <>))
+    (if-let [config-filenames (or (get-in parse-result [:options :config-file])
+                                (seq (core-kdef/ctx-config-files context)))]
+      (->> config-filenames
+        core-util/as-vec
+        (mapcat #(string/split % #","))
+        (mapv string/trim)
+        (assoc context (key core-kdef/ctx-config-files)))
       (if (clim-kdef/ctx-config-required? context)
         (do
-          (core-util/err-println "No config file specified as argument")
+          (core-util/err-println "ERROR: No config file specified as argument")
           (core-util/err-println (get-in parse-result [:summary]))
-          (reduced context))
+          (core-kdef/induce-exit context 1))
         context))))
 
 
 (defn assoc-command
   [context parse-result]
-  (if (reduced? context)
+  (if (or (reduced? context) (core-kdef/ctx-exit? context))
     context
     (let [command (get-in parse-result [:options :command] "run")]
       (assoc context (key clim-kdef/ctx-command) command))))
@@ -63,7 +65,7 @@
 
 (defn assoc-cmd-args
   [context parse-result]
-  (if (reduced? context)
+  (if (or (reduced? context) (core-kdef/ctx-exit? context))
     context
     (let [arguments (get-in parse-result [:arguments] [])]
       (assoc context (key clim-kdef/ctx-cmd-args) arguments))))

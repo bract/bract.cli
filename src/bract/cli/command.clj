@@ -27,17 +27,16 @@
 
 
 (defn command-config
-  "Print the given config using the format determined from the supplied config file names. Indicate flow-termination
-  by returning reduced context"
+  "Print the given config using the format determined from the supplied config file names."
   [context]
   (let [config (core-kdef/ctx-config context)
         config-filenames (core-kdef/ctx-config-files context)]
     (core-kdef/print-config config config-filenames))
-  (reduced context))
+  (core-kdef/induce-exit context))
 
 
 (defn command-repl
-  "Launch a REPL and indicate flow-termination by returning reduced context."
+  "Launch a REPL."
   [context]
   (clojure.main/main)
-  (reduced context))
+  (core-kdef/induce-exit context))

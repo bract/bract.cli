@@ -13,6 +13,7 @@
     [clojure.pprint     :as pp]
     [clojure.tools.cli  :as cli]
     [keypin.util        :as kputil]
+    [bract.core.echo    :as echo]
     [bract.core.keydef  :as core-kdef]
     [bract.core.inducer :as core-inducer]
     [bract.core.util    :as core-util]
@@ -21,12 +22,44 @@
 
 
 (defn merge-commands
-  "Merge given CLI command map (key: command-string, value: {:doc string :handler (fn [context]) -> context}) to the
-  existing one."
+  "Merge given CLI command map {\"command-name\" {:doc string :handler inducer}} to the existing one. The inducer is
+  `(fn [context]) -> context`."
   [context new-commands]
-  (let [old-commands (clim-kdef/ctx-app-commands context)]
-    (assoc context
-      (key clim-kdef/ctx-app-commands) (merge old-commands new-commands))))
+  (echo/echo "Adding CLI commands:" (keys new-commands))
+  (->> new-commands
+    (reduce-kv (fn [m k command]
+                 (core-util/expected :handler
+                   "command to have a :handler key with corresponding function or fully qualified name" command)
+                 (assoc m k command))
+      {})
+    (merge (clim-kdef/ctx-app-commands context))  ; merge/assoc instead of update to enforce app-commands validation
+    (assoc context (key clim-kdef/ctx-app-commands))))
+
+
+(defn merge-launch-commands
+  "Merge given CLI command map {\"command-name\" {:doc string :handler launcher}} to the existing one. The launcher is
+  `(fn [context]) -> context` meant to replace the entry at key :bract.core/launcher in the context."
+  [context new-commands]
+  (echo/echo "Adding CLI commands for launchers:" (->> (vals new-commands)
+                                                    (map :handler)
+                                                    (zipmap (keys new-commands))))
+  (->> new-commands
+    (reduce-kv (fn [m k command]
+                 (as-> (fn make-updater [launchers]
+                         (core-util/expected coll?
+                           "a collection of launcher functions or their fully qualified names at key :launchers"
+                           launchers)
+                         (fn update-launchers [context]
+                           (assoc context
+                             (key core-kdef/ctx-launch?) true
+                             (key core-kdef/ctx-launchers) launchers)))
+                   $
+                   ($ (:launchers command))
+                   (assoc command :handler $)
+                   (assoc m k $)))
+      {})
+    (merge (clim-kdef/ctx-app-commands context))  ; merge/assoc instead of update to enforce app-commands validation
+    (assoc context (key clim-kdef/ctx-app-commands))))
 
 
 (defn parse-args
@@ -50,10 +83,10 @@
                                                      [])
                                                    pp/print-table
                                                    with-out-str)))
-                        (reduced context))
+                        (core-kdef/induce-exit context))
       errors          (do
                         (core-util/err-println (string/join \newline errors))
-                        (reduced context))
+                        (core-kdef/induce-exit context))
       :otherwise      (-> context
                         (internal/assoc-verbose     parse-result)
                         (internal/assoc-config-file parse-result)
@@ -71,8 +104,10 @@
         (core-util/expected (some-fn ifn? kputil/fqvn?)
           "CLI-command handler function or fully qualified fn name" handler)
         (core-inducer/apply-inducer "CLI command-handler" context handler))
-      (core-util/expected (format "a valid command %s" (->> (keys app-commands)
-                                                         (concat (keys app-commands))
-                                                         vec
-                                                         pr-str))
-        command))))
+      (do
+        (core-util/err-println (format "ERROR: Expected a valid command %s, but found '%s'."
+                                 (->> (keys app-commands)
+                                   vec
+                                   pr-str)
+                                 command))
+        (core-kdef/induce-exit context 1)))))

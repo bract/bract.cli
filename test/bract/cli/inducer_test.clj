@@ -34,10 +34,23 @@
                   :handler 'identity}}))))
 
 
+(deftest test-merge-launch-commands
+  (let [context (clim-inducer/merge-launch-commands {} {"foo" {:doc "test"
+                                                               :launchers ['identity]}})]
+    (is (contains? context :bract.cli/app-commands))
+    (is (fn? (get-in context [:bract.cli/app-commands "foo" :handler]))))
+  (let [context (clim-inducer/merge-launch-commands
+                  {:bract.cli/app-commands {"foo" {:doc "test foo"
+                                                   :handler 'identity}}}
+                  {"bar" {:doc "test bar"
+                          :launchers ['identity]}})]
+    (is (fn? (get-in context [:bract.cli/app-commands "bar" :handler])))))
+
+
 (deftest test-parse-args
   (is (thrown? IllegalArgumentException
         (clim-inducer/parse-args {})) "missing CLI args")
-  (is (reduced?
+  (is (core-kdef/ctx-exit?
         (clim-inducer/parse-args {(key clim-kdef/ctx-config-required?) true
                                   (key core-kdef/ctx-cli-args) ["-c" "hey"]})) "config file required but not passed")
   (let [context {(key core-kdef/ctx-cli-args) ["-f" "foo.edn"]}]
@@ -91,7 +104,7 @@
   (is (not (reduced?
              (clim-inducer/execute-command {(key clim-kdef/ctx-command) "dryrun"
                                             (key clim-kdef/ctx-cmd-args) []}))) "the `dryrun` command")
-  (is (reduced?
+  (is (core-kdef/ctx-exit?
         (clim-inducer/execute-command {(key core-kdef/ctx-config) {"foo" "bar"}
                                        (key clim-kdef/ctx-command) "config"
                                        (key clim-kdef/ctx-cmd-args) []})) "the `config` command")
