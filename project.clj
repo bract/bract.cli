@@ -1,4 +1,4 @@
-(defproject bract/bract.cli "0.6.0-0.1.0"
+(defproject bract/bract.cli "0.6.1-0.1.0-SNAPSHOT"
   :description "CLI module for Bract"
   :url "https://github.com/bract/bract.cli"
   :license {:name "Eclipse Public License"
@@ -8,6 +8,7 @@
                 *unchecked-math* :warn-on-boxed}
   :dependencies [[bract/bract.core "0.6.0"]
                  [org.clojure/tools.cli "0.3.6" :exclusions [org.clojure/clojure]]]
+  :pedantic? :warn
   :profiles {:provided {:dependencies [[org.clojure/clojure "1.7.0"]]}
              :coverage {:plugins [[lein-cloverage "1.0.9"]]}
              :rel {:min-lein-version "2.7.1"

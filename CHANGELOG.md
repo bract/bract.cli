@@ -5,7 +5,12 @@
 None
 
 
-## [WIP] 0.6.0-0.1.0 / 2018-May-16
+## [WIP] 0.6.1-0.1.0 / 2018-October-??
+
+- [Todo] Use bract.core 0.6.1
+
+
+## 0.6.0-0.1.0 / 2018-May-16
 
 - Version upgrades
   - Use bract.core 0.6.0
