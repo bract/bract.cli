@@ -9,7 +9,7 @@ None
 
 - Version upgrades
   - Use bract.core 0.6.2-alpha1
-  - [Todo] Upgrade tools.cli to `0.3.7`
+  - Upgrade tools.cli to `0.3.7`
 - Documentation
   - [Todo] Add _cljdoc_ badge
   - [Todo] Docstring cleanup in accordance with _cljdoc_
