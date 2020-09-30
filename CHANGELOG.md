@@ -11,7 +11,7 @@ None
   - Use bract.core 0.6.2-alpha1
   - Upgrade tools.cli to `0.3.7`
 - Documentation
-  - [Todo] Add _cljdoc_ badge
+  - Add _cljdoc_ badge
   - Reformat docstring for _cljdoc_
   - [Todo] Add documentation on context keys, config keys
 

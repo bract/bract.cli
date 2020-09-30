@@ -1,5 +1,7 @@
 # bract.cli
 
+[![cljdoc badge](https://cljdoc.org/badge/bract/bract.cli)](https://cljdoc.org/d/bract/bract.cli)
+
 CLI support module for Bract.
 
 
