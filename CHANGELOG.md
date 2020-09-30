@@ -5,6 +5,17 @@
 None
 
 
+## [WIP] 0.6.2-0.1.1 / 2020-October-??
+
+- Version upgrades
+  - [Todo] Use bract.core 0.6.2
+  - [Todo] Upgrade tools.cli to `0.3.7`
+- Documentation
+  - [Todo] Add _cljdoc_ badge
+  - [Todo] Docstring cleanup in accordance with _cljdoc_
+  - [Todo] Add documentation on context keys, config keys
+
+
 ## 0.6.1-0.1.0 / 2018-October-10
 
 - Use bract.core 0.6.1
