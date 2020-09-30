@@ -8,6 +8,7 @@
 
 
 (ns bract.cli.inducer
+  "Inducers provided by the bract.cli module."
   (:require
     [clojure.string     :as string]
     [clojure.pprint     :as pp]
@@ -22,7 +23,7 @@
 
 
 (defn merge-commands
-  "Merge given CLI command map {\"command-name\" {:doc string :handler inducer}} to the existing one. The inducer is
+  "Merge given CLI command map `{\"command-name\" {:doc string :handler inducer}}` to the existing one. The inducer is
   `(fn [context]) -> context`."
   [context new-commands]
   (echo/echo "Adding CLI commands:" (keys new-commands))
@@ -37,8 +38,8 @@
 
 
 (defn merge-launch-commands
-  "Merge given CLI command map {\"command-name\" {:doc string :handler launcher}} to the existing one. The launcher is
-  `(fn [context]) -> context` meant to replace the entry at key :bract.core/launcher in the context."
+  "Merge given CLI command map `{\"command-name\" {:doc string :handler launcher}}` to the existing one. The launcher is
+  `(fn [context]) -> context` meant to replace the entry at key `:bract.core/launcher` in the context."
   [context new-commands]
   (echo/echo "Adding CLI commands for launchers:" (->> (vals new-commands)
                                                     (map :handler)
@@ -63,7 +64,7 @@
 
 
 (defn parse-args
-  "Given context with key :bract.cli/cli-args, parse CLI args and return (potentially reduced) the context updated
+  "Given context with key `:bract.cli/cli-args`, parse CLI args and return (potentially reduced) the context updated
   with config filename, CLI command and command-arguments."
   [context]
   (let [cli-args (core-kdef/ctx-cli-args context)
@@ -95,6 +96,9 @@
 
 
 (defn execute-command
+  "Execute CLI command placed under key `:bract.cli/command` in the context using the CLI aruments placed under the key
+  `:bract.cli/cmd-args`. Verify valid command by looking up the command map under the key `:bract.cli/app-commands` in
+  the context."
   [context]
   (let [command   (clim-kdef/ctx-command context)
         arguments (clim-kdef/ctx-cmd-args context)

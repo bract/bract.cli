@@ -8,6 +8,7 @@
 
 
 (ns bract.cli.internal
+  "Internal implementation functions."
   (:require
     [clojure.string    :as string]
     [bract.cli.keydef  :as clim-kdef]

@@ -12,7 +12,7 @@ None
   - Upgrade tools.cli to `0.3.7`
 - Documentation
   - [Todo] Add _cljdoc_ badge
-  - [Todo] Docstring cleanup in accordance with _cljdoc_
+  - Reformat docstring for _cljdoc_
   - [Todo] Add documentation on context keys, config keys
 
 

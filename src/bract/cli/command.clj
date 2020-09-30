@@ -8,6 +8,7 @@
 
 
 (ns bract.cli.command
+  "CLI commands implementation."
   (:require
     [bract.core.keydef :as core-kdef]))
 
