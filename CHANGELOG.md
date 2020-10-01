@@ -5,7 +5,7 @@
 None
 
 
-## [WIP] 0.6.2-0.1.1 / 2020-October-??
+## 0.6.2-0.1.1-alpha1 / 2020-October-01
 
 - Version upgrades
   - Use bract.core 0.6.2-alpha1
