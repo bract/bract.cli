@@ -5,6 +5,11 @@
 None
 
 
+## 0.6.2-0.1.1-alpha3 / 2020-October-12
+
+- Use bract.core 0.6.2-alpha3
+
+
 ## 0.6.2-0.1.1-alpha2 / 2020-October-05
 
 - Use bract.core 0.6.2-alpha2
