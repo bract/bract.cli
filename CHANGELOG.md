@@ -5,6 +5,11 @@
 None
 
 
+## [WIP] 0.6.2-0.1.1-beta1 / 2021-January-??
+
+- Use bract.core 0.6.2-beta1
+
+
 ## 0.6.2-0.1.1-alpha3 / 2020-October-12
 
 - Use bract.core 0.6.2-alpha3
