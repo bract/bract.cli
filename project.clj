@@ -6,7 +6,7 @@
   :global-vars {*warn-on-reflection* true
                 *assert* true
                 *unchecked-math* :warn-on-boxed}
-  :dependencies [[bract/bract.core "0.6.2-beta1"]
+  :dependencies [[bract/bract.core "0.6.2-beta2"]
                  [org.clojure/tools.cli "0.3.7" :exclusions [org.clojure/clojure]]]
   :pedantic? :warn
   :profiles {:provided {:dependencies [[org.clojure/clojure "1.7.0"]]}
