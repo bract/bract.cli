@@ -5,7 +5,7 @@
 None
 
 
-## [WIP] 0.6.2-0.1.1-beta3 / 2021-February-??
+## 0.6.2-0.1.1-beta3 / 2021-February-06
 
 - Use bract.core 0.6.2-beta3
 
