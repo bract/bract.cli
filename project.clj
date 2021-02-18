@@ -1,4 +1,4 @@
-(defproject bract/bract.cli "0.6.2-0.1.1-beta4"
+(defproject bract/bract.cli "0.6.2-0.1.1-beta5"
   :description "CLI module for Bract"
   :url "https://github.com/bract/bract.cli"
   :license {:name "Eclipse Public License"
@@ -6,7 +6,7 @@
   :global-vars {*warn-on-reflection* true
                 *assert* true
                 *unchecked-math* :warn-on-boxed}
-  :dependencies [[bract/bract.core "0.6.2-beta4"]
+  :dependencies [[bract/bract.core "0.6.2-beta5"]
                  [org.clojure/tools.cli "0.3.7" :exclusions [org.clojure/clojure]]]
   :pedantic? :warn
   :profiles {:provided {:dependencies [[org.clojure/clojure "1.7.0"]]}
