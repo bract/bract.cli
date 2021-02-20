@@ -48,7 +48,7 @@
 
 
 (deftest test-parse-args
-  (is (thrown? IllegalArgumentException
+  (is (= {}
         (clim-inducer/parse-args {})) "missing CLI args")
   (is (core-kdef/ctx-exit?
         (clim-inducer/parse-args {(key clim-kdef/ctx-config-required?) true

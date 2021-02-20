@@ -8,7 +8,7 @@ None
 ## [WIP] 0.6.2-0.1.1-beta6 / 2021-February-??
 
 - Use bract.core 0.6.2-beta6
-- [Todo] Skip arg-parsing in `bract.cli.inducer/parse-args` if CLI-args is unavailable in context
+- Skip arg-parsing in `bract.cli.inducer/parse-args` if CLI-args is unavailable in context
 - [Todo] Skip command execution in `bract.cli.inducer/execute-command` if command is unavailable in context
 
 

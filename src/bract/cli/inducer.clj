@@ -67,32 +67,34 @@
   "Given context with key `:bract.cli/cli-args`, parse CLI args and return (potentially reduced) the context updated
   with config filename, CLI command and command-arguments."
   [context]
-  (let [cli-args (core-kdef/ctx-cli-args context)
-        {:keys [options
-                arguments
-                summary
-                errors]
-         :as parse-result} (cli/parse-opts cli-args internal/cli-options
-                             :in-order true)]
-    (cond
-      (:help options) (do
-                        (core-util/err-println summary)
-                        (core-util/err-println (str "\nCommands:\n"
-                                                 (->> (clim-kdef/ctx-app-commands context)
-                                                   (reduce-kv (fn [a command {doc :doc}]
-                                                                (conj a {"Command" command "Description" doc}))
-                                                     [])
-                                                   pp/print-table
-                                                   with-out-str)))
-                        (core-kdef/induce-exit context))
-      errors          (do
-                        (core-util/err-println (string/join \newline errors))
-                        (core-kdef/induce-exit context))
-      :otherwise      (-> context
-                        (internal/assoc-verbose     parse-result)
-                        (internal/assoc-config-file parse-result)
-                        (internal/assoc-command     parse-result)
-                        (internal/assoc-cmd-args    parse-result)))))
+  (core-inducer/when-context-has-key
+    [context (key core-kdef/ctx-cli-args) "CLI-args parsing"]
+    (let [cli-args (core-kdef/ctx-cli-args context)
+          {:keys [options
+                  arguments
+                  summary
+                  errors]
+           :as parse-result} (cli/parse-opts cli-args internal/cli-options
+                               :in-order true)]
+      (cond
+        (:help options) (do
+                          (core-util/err-println summary)
+                          (core-util/err-println (str "\nCommands:\n"
+                                                   (->> (clim-kdef/ctx-app-commands context)
+                                                     (reduce-kv (fn [a command {doc :doc}]
+                                                                  (conj a {"Command" command "Description" doc}))
+                                                       [])
+                                                     pp/print-table
+                                                     with-out-str)))
+                          (core-kdef/induce-exit context))
+        errors          (do
+                          (core-util/err-println (string/join \newline errors))
+                          (core-kdef/induce-exit context))
+        :otherwise      (-> context
+                          (internal/assoc-verbose     parse-result)
+                          (internal/assoc-config-file parse-result)
+                          (internal/assoc-command     parse-result)
+                          (internal/assoc-cmd-args    parse-result))))))
 
 
 (defn execute-command
