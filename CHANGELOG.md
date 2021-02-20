@@ -5,7 +5,7 @@
 None
 
 
-## [WIP] 0.6.2-0.1.1-beta6 / 2021-February-??
+## 0.6.2-0.1.1-beta6 / 2021-February-21
 
 - Use bract.core 0.6.2-beta6
 - Skip arg-parsing in `bract.cli.inducer/parse-args` if CLI-args is unavailable in context
