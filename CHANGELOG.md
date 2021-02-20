@@ -5,6 +5,13 @@
 None
 
 
+## [WIP] 0.6.2-0.1.1-beta6 / 2021-February-??
+
+- [Todo] Use bract.core 0.6.2-alpha6
+- [Todo] Skip arg-parsing in `bract.cli.inducer/parse-args` if CLI-args is unavailable in context
+- [Todo] Skip command execution in `bract.cli.inducer/execute-command` if command is unavailable in context
+
+
 ## 0.6.2-0.1.1-beta5 / 2021-February-18
 
 - Use bract.core 0.6.2-alpha5
