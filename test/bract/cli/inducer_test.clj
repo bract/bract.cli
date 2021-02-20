@@ -94,7 +94,7 @@
 
 
 (deftest test-execute-command
-  (is (thrown? IllegalArgumentException
+  (is (= {}
         (clim-inducer/execute-command {})) "missing command")
   (is (thrown? IllegalArgumentException
         (clim-inducer/execute-command {(key clim-kdef/ctx-command) "run"})) "missing command args")

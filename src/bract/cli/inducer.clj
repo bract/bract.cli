@@ -102,18 +102,20 @@
   `:bract.cli/cmd-args`. Verify valid command by looking up the command map under the key `:bract.cli/app-commands` in
   the context."
   [context]
-  (let [command   (clim-kdef/ctx-command context)
-        arguments (clim-kdef/ctx-cmd-args context)
-        app-commands (clim-kdef/ctx-app-commands context)]
-    (if (contains? app-commands command)
-      (let [{:keys [doc handler]} (get app-commands command)]
-        (core-util/expected (some-fn ifn? kputil/fqvn?)
-          "CLI-command handler function or fully qualified fn name" handler)
-        (core-inducer/apply-inducer "CLI command-handler" context handler))
-      (do
-        (core-util/err-println (format "ERROR: Expected a valid command %s, but found '%s'."
-                                 (->> (keys app-commands)
-                                   vec
-                                   pr-str)
-                                 command))
-        (core-kdef/induce-exit context 1)))))
+  (core-inducer/when-context-has-key
+    [context (key clim-kdef/ctx-command) "CLI-command execution"]
+    (let [command   (clim-kdef/ctx-command context)
+          arguments (clim-kdef/ctx-cmd-args context)
+          app-commands (clim-kdef/ctx-app-commands context)]
+      (if (contains? app-commands command)
+        (let [{:keys [doc handler]} (get app-commands command)]
+          (core-util/expected (some-fn ifn? kputil/fqvn?)
+            "CLI-command handler function or fully qualified fn name" handler)
+          (core-inducer/apply-inducer "CLI command-handler" context handler))
+        (do
+          (core-util/err-println (format "ERROR: Expected a valid command %s, but found '%s'."
+                                   (->> (keys app-commands)
+                                     vec
+                                     pr-str)
+                                   command))
+          (core-kdef/induce-exit context 1))))))
