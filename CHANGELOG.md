@@ -8,7 +8,7 @@
 ## [WIP] 0.6.2-0.1.1 / 2021-February-??
 
 - Dependency update
-  - [Todo] Upgrade bract.core to `0.6.2`
+  - Upgrade bract.core to `0.6.2`
   - Upgrade tools.cli to `0.3.7`
 - Improvements
   - Skip arg-parsing in `bract.cli.inducer/parse-args` if CLI-args is unavailable in context
