@@ -2,7 +2,21 @@
 
 ## Todo
 
-None
+- [Todo] Upgrade tools.cli to 1.0.x series (requires Clojure 1.8 or later)
+
+
+## [WIP] 0.6.2-0.1.1 / 2021-February-??
+
+- Dependency update
+  - Upgrade bract.core to `0.6.2`
+  - Upgrade tools.cli to `0.3.7`
+- Improvements
+  - Skip arg-parsing in `bract.cli.inducer/parse-args` if CLI-args is unavailable in context
+  - Skip command execution in `bract.cli.inducer/execute-command` if command is unavailable in context
+- Documentation
+  - Add _cljdoc_ badge
+  - Reformat docstring for _cljdoc_
+  - Add documentation on context keys
 
 
 ## 0.6.1-0.1.0 / 2018-October-10

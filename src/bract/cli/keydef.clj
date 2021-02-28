@@ -8,6 +8,7 @@
 
 
 (ns bract.cli.keydef
+  "Context and configuration keys used by the bract.cli module."
   (:require
     [keypin.core :as keypin]
     [keypin.util :as kputil]

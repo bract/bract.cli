@@ -8,26 +8,28 @@
 
 
 (ns bract.cli.command
+  "CLI commands implementation."
   (:require
     [bract.core.keydef :as core-kdef]))
 
 
 (defn command-run
-  "Run all steps."
+  "Run all steps. Set context key `:bract.core/launch?` value to `true`."
   [context]
   (assoc context
     (key core-kdef/ctx-launch?) true))
 
 
 (defn command-dryrun
-  "Run all steps except launch."
+  "Run all steps except launch. Set context key `:bract.core/launch?` value to `false`."
   [context]
   (assoc context
     (key core-kdef/ctx-launch?) false))
 
 
 (defn command-config
-  "Print the given config using the format determined from the supplied config file names."
+  "Print the given config using the format determined from the supplied config file names. Finally,
+  set context key `:bract.core/exit?` value to `true`."
   [context]
   (let [config (core-kdef/ctx-config context)
         config-filenames (core-kdef/ctx-config-files context)]
@@ -36,7 +38,7 @@
 
 
 (defn command-repl
-  "Launch a REPL."
+  "Launch a REPL. Finally, set context key `:bract.core/exit?` value to `true`."
   [context]
   (clojure.main/main)
   (core-kdef/induce-exit context))

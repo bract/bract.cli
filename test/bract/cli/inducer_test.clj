@@ -48,7 +48,7 @@
 
 
 (deftest test-parse-args
-  (is (thrown? IllegalArgumentException
+  (is (= {}
         (clim-inducer/parse-args {})) "missing CLI args")
   (is (core-kdef/ctx-exit?
         (clim-inducer/parse-args {(key clim-kdef/ctx-config-required?) true
@@ -94,7 +94,7 @@
 
 
 (deftest test-execute-command
-  (is (thrown? IllegalArgumentException
+  (is (= {}
         (clim-inducer/execute-command {})) "missing command")
   (is (thrown? IllegalArgumentException
         (clim-inducer/execute-command {(key clim-kdef/ctx-command) "run"})) "missing command args")
