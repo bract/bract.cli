@@ -2,61 +2,17 @@
 
 ## Todo
 
-None
+- [Todo] Upgrade tools.cli to 1.0.x series (requires Clojure 1.8 or later)
 
 
-## 0.6.2-0.1.1-beta6 / 2021-February-21
+## [WIP] 0.6.2-0.1.1 / 2021-February-??
 
-- Use bract.core 0.6.2-beta6
-- Skip arg-parsing in `bract.cli.inducer/parse-args` if CLI-args is unavailable in context
-- Skip command execution in `bract.cli.inducer/execute-command` if command is unavailable in context
-
-
-## 0.6.2-0.1.1-beta5 / 2021-February-18
-
-- Use bract.core 0.6.2-beta5
-
-
-## 0.6.2-0.1.1-beta4 / 2021-February-14
-
-- Use bract.core 0.6.2-beta4
-
-
-## 0.6.2-0.1.1-alpha4 / 2021-February-13
-
-- Use bract.core 0.6.2-alpha4
-
-
-## 0.6.2-0.1.1-beta3 / 2021-February-06
-
-- Use bract.core 0.6.2-beta3
-
-
-## 0.6.2-0.1.1-beta2 / 2021-January-28
-
-- Use bract.core 0.6.2-beta2
-
-
-## 0.6.2-0.1.1-beta1 / 2021-January-27
-
-- Use bract.core 0.6.2-beta1
-
-
-## 0.6.2-0.1.1-alpha3 / 2020-October-12
-
-- Use bract.core 0.6.2-alpha3
-
-
-## 0.6.2-0.1.1-alpha2 / 2020-October-05
-
-- Use bract.core 0.6.2-alpha2
-
-
-## 0.6.2-0.1.1-alpha1 / 2020-October-01
-
-- Version upgrades
-  - Use bract.core 0.6.2-alpha1
+- Dependency update
+  - [Todo] Upgrade bract.core to `0.6.2`
   - Upgrade tools.cli to `0.3.7`
+- Improvements
+  - Skip arg-parsing in `bract.cli.inducer/parse-args` if CLI-args is unavailable in context
+  - Skip command execution in `bract.cli.inducer/execute-command` if command is unavailable in context
 - Documentation
   - Add _cljdoc_ badge
   - Reformat docstring for _cljdoc_
